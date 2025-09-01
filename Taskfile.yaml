@@ -1,0 +1,59 @@
+version: "3"
+
+silent: true
+
+vars:
+  INSTALL_DIR: ~/.config/zellij/plugins
+  PLUGIN_FILE: "zellij-playbooks.wasm"
+  DEV_SUFFIX: "-dev"
+
+tasks:
+  lint:
+    desc: "Lint"
+    cmds:
+      - cargo clippy --all-targets -- -D warnings
+      - cargo fmt --all -- --check
+
+  fmt:
+    desc: "Fmt"
+    cmds:
+      - cargo fmt --all
+
+  audit:
+    desc: "Audit"
+    cmds:
+      - cargo audit
+
+  build:
+    desc: "Build zellij-playbooks plugin"
+    cmds:
+      - cargo build --release
+
+  install:
+    desc: "Install zellij-playbooks plugin"
+    cmds:
+      - mkdir -p {{ .INSTALL_DIR }}
+      - cp target/wasm32-wasip1/release/{{ .PLUGIN_FILE }} {{ .INSTALL_DIR }}/
+
+  install-dev:
+    desc: "Install dev zellij-playbooks plugin"
+    cmds:
+      - mkdir -p {{ .INSTALL_DIR }}
+      - cp target/wasm32-wasip1/release/{{ .PLUGIN_FILE }} {{ .INSTALL_DIR }}/{{ .PLUGIN_FILE | replace ".wasm" (print .DEV_SUFFIX ".wasm") }}
+
+  build-install:
+    desc: "Build and install zellij-playbooks plugin"
+    cmds:
+      - task: build
+      - task: install
+
+  build-install-dev:
+    desc: "Build and install dev zellij-playbooks plugin"
+    cmds:
+      - task: build
+      - task: install-dev
+
+  vim:install:
+    desc: "Install vim plugin"
+    cmds:
+      - ./vim-plugin/install.sh

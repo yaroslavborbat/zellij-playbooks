@@ -1,0 +1,11 @@
+[package]
+name = "zellij-playbooks"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+owo-colors = "4.1.0"
+serde = { version = "1.0.214", features = ["derive"] }
+zellij-tile = "0.43.1"
+num_enum = "0.7.3"
