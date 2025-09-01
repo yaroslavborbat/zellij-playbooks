@@ -1,6 +1,6 @@
 # zellij-playbooks
 
-A [Zellij](https://zellij.dev) plugin for managing and executing playbook files. Inspired by [tome](https://github.com/laktak/tome/tree/master), this plugin allows you to browse files in the current directory, select a playbook file, and then navigate through its lines to paste them into the previous pane.
+A [Zellij](https://zellij.dev) plugin for managing and executing playbook files. Inspired by [tome](https://github.com/laktak/tome/tree/master), this plugin allows you to browse files in the current directory, select a playbook file, and then navigate through its lines to insert them into the terminal.
 
 ![demo](assets/demo.gif)
 
@@ -160,7 +160,7 @@ For more details, see the [Vim Plugin README](vim-plugin/README.md).
 ## 🧩 More Zellij Plugins by Me
 
 - [`zellij-bookmarks`](https://github.com/yaroslavborbat/zellij-bookmarks) - A Zellij plugin for creating, managing, and quickly inserting command bookmarks into the terminal.
-- [`zellij-playbooks`](https://github.com/yaroslavborbat/zellij-playbooks) - A Zellij plugin for managing and executing playbook files. 
+- [`zellij-playbooks`](https://github.com/yaroslavborbat/zellij-playbooks) - A Zellij plugin to browse, select, and execute commands from playbook files directly in the terminal.
 
 ---
 ## 🤝 Contributing
