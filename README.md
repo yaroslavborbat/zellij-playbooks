@@ -1,6 +1,8 @@
 # zellij-playbooks
 
-A [Zellij](https://zellij.dev) plugin for managing and executing playbook files. This plugin allows you to browse files in the current directory, select a playbook file, and then navigate through its lines to paste them into the previous pane.
+A [Zellij](https://zellij.dev) plugin for managing and executing playbook files. Inspired by [tome](https://github.com/laktak/tome/tree/master), this plugin allows you to browse files in the current directory, select a playbook file, and then navigate through its lines to paste them into the previous pane.
+
+![demo](assets/demo.gif)
 
 ## ✨ Features
 
@@ -115,6 +117,7 @@ load_plugins {
 - **`bind_reload`**: *(default: `Ctrl r`)* - Keybinding to reload files from current directory
 - **`bind_switch_filter_id`**: *(default: `Ctrl i`)* - Keybinding to switch to ID filtering mode
 - **`pipe_mode`**: *(default: `false`)* - Enable pipe mode for external text input
+- **`cwd`**: (optional) — Set a fixed directory to always open. If specified, the plugin will ignore the current working directory and load files from this path instead.
 
 ---
 
@@ -123,11 +126,11 @@ load_plugins {
 ### Using with Scripts
 ```bash
 # Create a simple playbook
-echo "📝 Starting playbook execution..." > playbook
+echo 'echo "📝 Starting playbook execution..."' > playbook
 echo "# This is a comment" >> playbook
 echo "cd" >> playbook
 echo "pwd" >> playbook
-echo "🏁 Playbook finished. Ready for next command." >> playbook
+echo 'echo "🏁 Playbook finished. Ready for next command."' >> playbook
 # Use the plugin to execute commands line by line
 ```
 
@@ -152,6 +155,12 @@ A Vim plugin is included for seamless integration between Vim and Zellij. The pl
 task vim:install
 ```
 For more details, see the [Vim Plugin README](vim-plugin/README.md).
+
+---
+## 🧩 More Zellij Plugins by Me
+
+- [`zellij-bookmarks`](https://github.com/yaroslavborbat/zellij-bookmarks) - A Zellij plugin for creating, managing, and quickly inserting command bookmarks into the terminal.
+- [`zellij-playbooks`](https://github.com/yaroslavborbat/zellij-playbooks) - A Zellij plugin for managing and executing playbook files. 
 
 ---
 ## 🤝 Contributing
